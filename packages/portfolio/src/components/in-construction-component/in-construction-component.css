@@ -1,0 +1,20 @@
+.construction-animation {
+    transform: rotate(9deg);
+    animation: dropConstruction 1s ease-in-out;
+}
+
+@keyframes dropConstruction {
+    from { 
+        @apply rotate-0;
+        top: -1000px;
+    }
+
+    90% {
+        @apply rotate-0;
+    }
+
+    to {
+        @apply -top-4;
+        transform: rotate(9deg);
+    }
+}
