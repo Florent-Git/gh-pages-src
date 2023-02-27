@@ -40,3 +40,4 @@ jobs:
               with:
                 folder: packages/portfolio/public
                 repository-name: Florent-Git/Florent-Git.github.io
+                ssh-key: ${{ secrets.DEPLOY_KEY }}
