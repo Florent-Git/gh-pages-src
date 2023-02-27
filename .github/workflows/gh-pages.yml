@@ -1,1 +1,39 @@
-# WIP
+name: Build and Deploy
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: [closed]
+        branches:
+            - main
+
+permissions:
+    contents: write
+
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup NodeJS
+              uses: actions/setup-node@v3
+              with:
+                node-version: 18.x
+
+            - name: Run `yarn install`
+              uses: borales/actions-yarn@v4
+              with:
+                cmd: install
+
+            - name: Build
+              uses: borales/actions-yarn@v4
+              with:
+                cmd: workspace @margaux-git/portfolio build
+
+            - name: Deploy
+              uses: JamesIves/github-pages-deploy-action@v4
+              with:
+                folder: packages/portfolio/public
