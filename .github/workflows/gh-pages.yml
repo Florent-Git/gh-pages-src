@@ -37,3 +37,4 @@ jobs:
               uses: JamesIves/github-pages-deploy-action@v4
               with:
                 folder: packages/portfolio/public
+                repository-name: Florent-Git/Florent-Git.github.io
